@@ -42,6 +42,10 @@ ehthumbs.db
 Thumbs.db
 desktop.ini
 
+# 特定ファイルを除外
+MetaWorkspace/Assets/VRTemplateAssets/Videos/onboarding video.mp4
+MetaWorkspace/Assets/VRTemplateAssets/Materials/Skybox/5b0X01-openG.png
+
 # =========================================
 # Meta XR / Oculus 関連
 # =========================================
