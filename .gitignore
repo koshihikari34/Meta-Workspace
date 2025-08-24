@@ -1,0 +1,115 @@
+# =========================================
+# Unity 共通
+# =========================================
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+sysinfo.txt
+
+# Unity Cache
+/[Aa]ssets/AssetStoreTools*
+/[Aa]ssets/StreamingAssets/aa/*
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+
+# Unity 自動生成
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# OS ごとの不要ファイル
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# =========================================
+# Meta XR / Oculus 関連
+# =========================================
+/[Aa]ssets/Oculus/VR/Editor/OVR*Config.asset
+/[Aa]ssets/Oculus/VR/Editor/OVR*Config.asset.meta
+/[Aa]ssets/Oculus/VR/Editor/OVR*Settings.asset
+/[Aa]ssets/Oculus/VR/Editor/OVR*Settings.asset.meta
+/[Aa]ssets/Oculus/VR/Editor/OVR*ProjectConfig.asset
+/[Aa]ssets/Oculus/VR/Editor/OVR*ProjectConfig.asset.meta
+
+# Oculus ビルド成果物
+/[Bb]uilds/Oculus*
+/[Bb]uild/Oculus*
+
+# =========================================
+# XR Interaction Toolkit 関連
+# =========================================
+/[Aa]ssets/XR/Settings/XRInteractionToolkitSettings.asset
+/[Aa]ssets/XR/Settings/XRInteractionToolkitSettings.asset.meta
+
+# =========================================
+# UniRx 関連
+# =========================================
+# サンプルコード（不要なら除外）
+/[Aa]ssets/Plugins/UniRx/Scripts/Examples/
+/[Aa]ssets/Plugins/UniRx/Scripts/Examples.meta
+
+# テストコード（不要なら除外）
+/[Aa]ssets/Plugins/UniRx/Scripts/Tests/
+/[Aa]ssets/Plugins/UniRx/Scripts/Tests.meta
+
+# ドキュメント（不要なら除外）
+/[Aa]ssets/Plugins/UniRx/Documentation/
+/[Aa]ssets/Plugins/UniRx/Documentation.meta
+
+# =========================================
+# ビルド成果物
+# =========================================
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Pp]ublish/
+/[Dd]ist/
+/[Rr]elease/
+
+# =========================================
+# その他
+# =========================================
+# Rider / VSCode / JetBrains
+.idea/
+.vscode/
+*.code-workspace
+
+# Crash Reports
+/[Cc]rashReports/
+
+# Addressables
+/[Aa]ssets/AddressableAssetsData/*/*.bin*
+/[Aa]ssets/AddressableAssetsData/*/*.hash
+/[Aa]ssets/AddressableAssetsData/*/*.json
+
+# Lightmap / GI キャッシュ
+/[Ll]ibrary/GI/
+/[Ll]ibrary/LightmapSnapshot/
+
+# =========================================
+# ローカル専用設定
+# =========================================
+# 個人用設定ファイルは共有しない
+*.local
+*.env
