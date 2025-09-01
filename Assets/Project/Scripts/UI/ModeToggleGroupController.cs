@@ -15,13 +15,14 @@ public class ModeToggleGroupController : MonoBehaviour
     [Range(0.1f, 2f)]
     public float fadeDuration = 0.5f;
 
+    [Header("Camera Settings")]
+    public Camera vrCamera; // CenterEyeAnchor の Camera をInspectorで割り当て
+
     void Start()
     {
-        // リスナー登録
         mrToggle.onValueChanged.AddListener(OnMRChanged);
         vrToggle.onValueChanged.AddListener(OnVRChanged);
 
-        // 初期状態反映
         if (mrToggle.isOn) OnMRChanged(true);
         else if (vrToggle.isOn) OnVRChanged(true);
     }
@@ -32,23 +33,43 @@ public class ModeToggleGroupController : MonoBehaviour
         {
             StopAllCoroutines();
             StartCoroutine(FadePassthrough(true));
+
+            // MR時は背景を透明に
+            if (vrCamera != null)
+            {
+                vrCamera.clearFlags = CameraClearFlags.SolidColor;
+                vrCamera.backgroundColor = new Color(0, 0, 0, 0);
+            }
+
             currentModeText.text = "Current Mode: MR";
         }
     }
 
-    void OnVRChanged(bool isOn)
+    [Header("Skybox Settings")]
+public Material vrSkybox; // VR用スカイボックスマテリアルをInspectorで割り当て
+
+void OnVRChanged(bool isOn)
+{
+    if (isOn)
     {
-        if (isOn)
+        StopAllCoroutines();
+        StartCoroutine(FadePassthrough(false));
+
+        if (vrCamera != null)
         {
-            StopAllCoroutines();
-            StartCoroutine(FadePassthrough(false));
-            currentModeText.text = "Current Mode: VR";
+            vrCamera.clearFlags = CameraClearFlags.Skybox;
+            if (vrSkybox != null)
+            {
+                RenderSettings.skybox = vrSkybox;
+            }
         }
+
+        currentModeText.text = "Current Mode: VR";
     }
+}
 
     IEnumerator FadePassthrough(bool enable)
     {
-        // Passthrough を有効化する場合は先に ON にしてからフェード
         if (enable && !passthroughLayer.enabled)
             passthroughLayer.enabled = true;
 
@@ -63,7 +84,6 @@ public class ModeToggleGroupController : MonoBehaviour
             yield return null;
         }
 
-        // 完全にフェードアウトしたら OFF にする
         if (!enable)
             passthroughLayer.enabled = false;
     }
